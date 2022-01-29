@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'); 
-mongoose.connect('mongodb://localhost/Rental_system');
+mongoose.connect('mongodb+srv://Shubham:shubhamkumar@cluster0.fwbpo.mongodb.net/rental?retryWrites=true&w=majority');
 const db=mongoose.connection;
 //error
 db.on('error',console.error.bind(console,'error while connecting'));
