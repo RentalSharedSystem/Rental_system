@@ -22,7 +22,7 @@ passport.use(new LocalStratgy({
             }
             return done(null,user);
         }
-        
+
     });
  }
  ));
@@ -56,7 +56,7 @@ passport.checkAuthentication=function(req,res,next){
     }
 }
 passport.setAuthenticatedUser=function(req,res,next)
-{  
+{
     if(req.isAuthenticated()){
         res.locals.user=req.user;
     }
