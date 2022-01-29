@@ -1,6 +1,6 @@
 const passport= require('passport');
 const LocalStratgy=require('passport-local').Strategy;
-const User=require('../models/user');
+const User=require('../models/users');
 passport.use(new LocalStratgy({
     usernameField:'email',
     passReqToCallback:true
@@ -11,13 +11,13 @@ passport.use(new LocalStratgy({
     {
         if(err)
         {
-            req.flash('error',err);
             return done(err);
         }
         else
         {
             if(!user||user.password!=password)
-            {
+            {  
+                 console.log("invalid username/password");
                 return done(null,false);
             }
             return done(null,user);
@@ -55,8 +55,18 @@ passport.checkAuthentication=function(req,res,next){
         res.redirect('/users/sign-in');
     }
 }
+passport.checkAuthentication1=function(req,res,next){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
+    else
+    {
+        return next();
+    }
+}
 passport.setAuthenticatedUser=function(req,res,next)
 {  
+   
     if(req.isAuthenticated()){
         res.locals.user=req.user;
     }

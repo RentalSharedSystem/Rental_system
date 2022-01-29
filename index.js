@@ -4,7 +4,7 @@ const app = express();
 const port=process.env.PORT || 3000;
 const session=require('express-session');
 const passport=require('passport');
-const passportLocal=require('./config/passport-local');
+const passportLocal=require('./config/passport-local-stratagies');
 const MongoStore = require('connect-mongo');
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./assets'));
