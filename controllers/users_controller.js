@@ -4,7 +4,7 @@ module.exports.signUp=function(req,res)
      return res.render('sign_up');
 }
 module.exports.signIn=function(req,res)
-{    
+{
      return res.render('sign_in');
 }
 module.exports.create= function(req,res){
@@ -15,7 +15,7 @@ module.exports.create= function(req,res){
                return;
           }
          if(user)
-         {   
+         {
               console.log('user allready there');
               return res.redirect('/users/sign-in');
          }
@@ -34,4 +34,9 @@ module.exports.create= function(req,res){
 }
 module.exports.login=function(req,res){
      return res.redirect('/');
+}
+
+module.exports.logout=function(req,res){
+  req.logout();
+  return res.redirect('/');
 }

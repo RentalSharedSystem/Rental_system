@@ -16,13 +16,13 @@ passport.use(new LocalStratgy({
         else
         {
             if(!user||user.password!=password)
-            {  
+            {
                  console.log("invalid username/password");
                 return done(null,false);
             }
             return done(null,user);
         }
-        
+
     });
  }
  ));
@@ -65,8 +65,7 @@ passport.checkAuthentication1=function(req,res,next){
     }
 }
 passport.setAuthenticatedUser=function(req,res,next)
-{  
-   
+{
     if(req.isAuthenticated()){
         res.locals.user=req.user;
     }
