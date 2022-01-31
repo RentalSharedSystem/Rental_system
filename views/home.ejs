@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,26 +22,31 @@
     <div class="dropdown">
       <i class="fas fa-user fa-2x dropbtn"></i>
       <div class="dropdown-content">
-        <a href="/profile">Profile</a>
-        <a href="/logout">SignOut</a>
+        <a class="dropdown" href="/profile">Profile</a>
+        <a class="dropdown" href="/logout">SignOut</a>
       </div>
     </div>
 
     <%} else { %>
-    <a class="notauthenticated1" href="/users/sign-up">SignUp</a>
-    <a class="notauthenticated2" href="/users/sign-in">SignIn</a>
+    <a class="notauthenticated1 dropdown btn btn-lg btn-dark" href="/users/sign-up">SignUp</a>
+    <a class="notauthenticated2 dropdown btn btn-lg btn-dark" href="/users/sign-in">SignIn</a>
     <% } %>
   </nav>
   <% if (locals.user) { %>
   <div class="main">
-    <h2>Looking For ?</h2>
-    <br>
-    <a class="rent-hire" href="/rent">Rent</a>
-    <br>
-    <a class="rent-hire" href="/hire">Hire</a>
+    <img src="home.jpg" alt="">
+    <div class="home-above">
+      <h2>What are here for ?</h2>
+      <br>
+      <a class="rent-hire btn btn-lg btn-info" href="/rent">Rent</a>
+      <br>
+      <a class="rent-hire btn btn-lg btn-outline-info" href="/hire">Hire</a>
+    </div>
   </div>
   <% } else { %>
-  <div class="main"></div>
+  <div class="main">
+    <img src="home.jpg" alt="">
+  </div>
   <% } %>
 
 </body>
