@@ -21,6 +21,10 @@ label {
   color: white;
 }
 
+a {
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
+}
+
 .main {
   text-align: left;
   opacity: 90%;

@@ -12,6 +12,10 @@ html, body
     overflow-x: hidden;
 }
 
+a {
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
+}
+
 h1 {
   font-family: 'Montserrat';
   color: white;
