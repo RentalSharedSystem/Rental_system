@@ -3,8 +3,9 @@ html, body
     font-family: 'Montserrat';
     height: 100%;
     width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
-
 h1 {
   font-family: 'Montserrat';
 }
@@ -12,6 +13,7 @@ h1 {
 h2 {
   font-family: 'Montserrat';
   font-weight: lighter;
+  color: white;
 }
 
 .navbar {
@@ -22,11 +24,16 @@ h2 {
 
 .main {
   text-align: center;
-  background-color: #F6DACC;
+  opacity: 90%;
   width: 100%;
   height: 100%;
-  opacity: 90%;
-  padding-top: 150px;
+}
+
+.home-above {
+  z-index: 2;
+  position: absolute;
+  top: 400px;
+  left:100px;
 }
 
 .rent-hire {
@@ -35,13 +42,16 @@ h2 {
   color: white;
   text-decoration: none;
   margin-top: 24px;
+  position: relative;
+  right: 60px;
 }
 
 .notauthenticated1 {
   font-family: 'Montserrat';
   color: white;
   text-decoration: none;
-  margin-left: 1350px;
+  margin-left: 1450px;
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
 }
 
 .notauthenticated2 {
@@ -49,11 +59,17 @@ h2 {
   color: white;
   text-decoration: none;
   margin-right: -70px;
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
+}
+
+img {
+  width: 100%;
+  height: 100%;
 }
 
 a {
-  background-color: #64A9A5;
   border: none;
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
   color: white;
   padding: 15px 32px;
   text-align: center;
@@ -62,6 +78,16 @@ a {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+a:hover {
+  background-color: white;
+  color: #000000;
+}
+
+a.dropdown {
+  background-color: black;
+  color: white;
 }
 
 .dropbtn {
@@ -89,14 +115,14 @@ a {
 }
 
 .dropdown-content a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: white;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: #64A9A5;}
+.dropdown:hover .dropbtn {background-color: black;}

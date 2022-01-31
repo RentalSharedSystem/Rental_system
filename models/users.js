@@ -20,7 +20,12 @@ const userSchema= new mongoose.Schema({
     phone:{
         type:String,
         required:true 
-    }
+    },
+    all_product:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Product',
+        default:[]
+    }]
 },{
     timestamps:true
 });

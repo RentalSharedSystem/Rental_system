@@ -1,84 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="/sign_up.css">
-<title>create Your account</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Project</title>
+
+  <base href="/">
+  <link rel="stylesheet" href="./signup.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
+
   <nav class="navbar navbar-light bg-light">
     <h1 class="navbar-brand mb-0 h1">Rental</h1>
+    <a class="notauthenticated1 dropdown btn btn-lg btn-dark" href="/users/sign-in">SignIn</a>
   </nav>
+
   <div class="main">
-<div class="signup-form">
-    <form action="/users/sign-up" method="post">
-		<h2>Sign Up</h2>
-		<p>Please fill in this form to create an account!</p>
-		<hr>
-        <div class="form-group">
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">
-						<span class="fa fa-user"></span>
-					</span>                    
-				</div>
-				<input type="text" class="form-control" name="name" placeholder="Username" required="required">
-			</div>
-        </div>
-        <div class="form-group">
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">
-						<i class="fa fa-paper-plane"></i>
-					</span>                    
-				</div>
-				<input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
-			</div>
-        </div>
-		<div class="form-group">
-			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text">
-						<i class="fa fa-lock"></i>
-					</span>                    
-				</div>
-				<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-			</div>
-        </div>
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">
-                <i class="fa fa-phone"></i>
-              </span>                    
-            </div>
-            <input type="text" class="form-control" name="phone" placeholder="Phone No." required="required">
+    <img src="home.jpg" alt="">
+
+    <div class="home-above">
+      <h1>SignUp</h1>
+
+      <div style="width: 30rem; height: 25rem">
+        <form method="POST" action="/users/sign-up">
+          <div class="form-group">
+            <label for="name">Username</label>
+            <input type="text" class="form-control" name="name">
           </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="fa fa-home"></i>
-                  </span>                    
-                </div>
-                <input type="text" class="form-control" name="pincode" placeholder="Pincode" required="required">
-              </div>
-                </div>
-        <div class="form-group">
-			<label class="form-check-label"><input type="checkbox" required="required"> I accept the Terms of Use and Privacy Policy</a></label>
-		</div>
-		<div class="form-group">
-            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
-        </div>
-    </form>
-	<div class="text-center">Already have an account? <a href="/users/sign-in">Login here</a></div>
-</div>
-</div>
- </body>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone No.</label>
+            <input type="text" class="form-control" name="phone">
+          </div>
+          <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input type="text" class="form-control" name="pincode">
+          </div>
+          <br />
+          <button type="submit" class="btn btn-lg btn-info">SignUp</button>
+          <a class="rent-hire btn btn-lg btn-outline-info" href="/">Cancel</a>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</body>
+
 </html>
