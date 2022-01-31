@@ -37,6 +37,7 @@ label {
 }
 
 .navbar {
+  height: 80px;
   font-family: 'Montserrat';
   padding-left: 24px;
   padding-right: 24px;
@@ -51,4 +52,7 @@ label {
 
 .card {
   background: none;
+}
+.notauthenticated1{
+  box-shadow: 9px 9px 15px -5px rgba(46,74,117,0.53);
 }

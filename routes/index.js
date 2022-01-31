@@ -4,4 +4,5 @@ console.log("router loaded sucessfully");
 const homeController=require('../controllers/home_controllers');
 router.get('/',homeController.home);
 router.use('/users',require('./user.js'));
+router.use('/products',require('./product.js'));
 module.exports=router;

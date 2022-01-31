@@ -27,7 +27,7 @@ const productSchema= new mongoose.Schema({
         ref:'User'
     },
     image:{
-        type:string,
+        type:String,
         required:true
     }
 },{

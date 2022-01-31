@@ -17,6 +17,7 @@ h2 {
 }
 
 .navbar {
+  height: 80px;
   font-family: 'Montserrat';
   padding-left: 24px;
   padding-right: 100px;
