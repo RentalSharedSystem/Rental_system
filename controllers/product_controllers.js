@@ -15,10 +15,8 @@ module.exports.add=(req,res)=>{
     return res.redirect('/');
 }
 
-module.exports.hire=(req,res) => {
-  Product.find({},(products) => {
-    console.log(products);
-    return  res.render("hire",{products: products})
-  })
+module.exports.hire= async function (req,res) {
+  let products= await Product.find({});
+    return  res.render("hire",{products:products});
 
 }

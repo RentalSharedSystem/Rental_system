@@ -26,26 +26,33 @@
         <a class="dropdown" href="/users/logout">SignOut</a>
       </div>
     </div>
+    <div class="main">
+      <!-- <img src="home.jpg" alt=""> -->
+      <div class="home-above">
+        <form class="hire" action="/products/hire" method="post">
+          <input type="text" name="pincode" value="" placeholder="Pincode">
+          <button class="btn btn-lg btn-outline-info" type="submit" name="button">Search</button>
+        </form>
+      </div>
+    </div>
 
   </nav>
 
-  <div class="main">
-    <img src="home.jpg" alt="">
-    <div class="home-above">
-      <form class="hire" action="/products/hire" method="post">
-        <input type="text" name="pincode" value="" placeholder="Pincode">
-        <button class="btn btn-lg btn-outline-info" type="submit" name="button">Search</button>
-      </form>
-    </div>
-  </div>
+  
 
   <div class="items">
-    <% products.foreach((item) => { %>
-    <%  console.log(item); %>
-    <% }); %>
-
+    <% products.forEach((item) => { %>
+      <div class="item" style="width: 18rem;">
+        <img class="card-img-top" src="<%=item.image%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Rating: <%=item.rating%></h5>
+          <h5 class="card-title">Pincode: <%=item.pincode%></h5>
+          <p class="card-text">price per day:- <%=item.cost%></p>
+          <a href="" class="btn btn btn-outline-info">See Details..</a>
+        </div>
+      </div>
+    <% }); %> 
   </div>
-
 </body>
 
 </html>

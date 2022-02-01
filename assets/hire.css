@@ -1,10 +1,13 @@
 html, body
-{
+{   
+    background-image: url('/home.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: 'Montserrat';
     height: 100%;
     width: 100%;
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: auto;
+   
 }
 h1 {
   font-family: 'Montserrat';
@@ -33,10 +36,12 @@ button {
 }
 
 .navbar {
+  position:absolute;
   height: 80px;
   font-family: 'Montserrat';
   padding-left: 24px;
   padding-right: 100px;
+  
 }
 
 .main {
@@ -137,7 +142,23 @@ a.dropdown {
   text-decoration: none;
   display: block;
 }
-
+.items{
+   position: relative;
+   right: 80px;
+}
+.item{
+   display: inline-block;
+   margin: 60px;
+   width:260px;
+   border-style: solid;
+   position: relative;
+   color: #f1f1f1;
+   left: 200px;
+   bottom: -200px;
+}
+.item img{
+   height: 220px;
+}
 .dropdown-content a:hover {background-color: white;}
 
 .dropdown:hover .dropdown-content {display: block;}
