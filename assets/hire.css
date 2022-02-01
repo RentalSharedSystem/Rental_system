@@ -16,6 +16,22 @@ h2 {
   color: white;
 }
 
+input {
+  width: 780px;
+  height: 50px;
+}
+
+button {
+  position: absolute;
+  top: -250;
+  left: 830px;
+}
+.hire {
+  position: absolute;
+  top: -250px;
+  left: 400px;
+}
+
 .navbar {
   height: 80px;
   font-family: 'Montserrat';
