@@ -1,4 +1,5 @@
 const Product=require('../models/product');
+const User=require('../models/users');
 module.exports.rent=(req,res)=>{
    return res.render("rent");
 }
@@ -29,6 +30,6 @@ module.exports.findByPincode = async function(req,res) {
 
 module.exports.details = async function(req,res) {
 
-  let products= await Product.find({_id: req.params.id});
-    return  res.render("hire",{products:products});
+  let products= await Product.find({_id: req.params.id}).populate('owner');
+    return  res.render("detail",{products:products});
 }
