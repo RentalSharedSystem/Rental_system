@@ -6,4 +6,5 @@ router.get('/rent',productController.rent);
 router.get('/hire',productController.hire);
 router.post('/add',productController.add);
 router.post('/hire',productController.findByPincode);
+router.get('/hire/:id',productController.details);
 module.exports=router;
