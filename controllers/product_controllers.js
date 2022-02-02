@@ -16,17 +16,13 @@ module.exports.add=(req,res)=>{
 }
 
 module.exports.hire= async function (req,res) {
-  let products= await Product.find({state: "1"});
+  let products= await Product.find({state:"1"});
     return  res.render("hire",{products:products});
 
 }
 
 module.exports.findByPincode = async function(req,res) {
-  let products= await Product.find({pincode: req.body.pincode,state: "1"});
-    return  res.render("hire",{products:products});
-}
 
-module.exports.details = async function(req,res) {
-  let products= await Product.find({_id:req.params.id });
-    return  res.render("detail",{products:products});
+  let products= await Product.find({pincode: req.body.pincode,state:"1"});
+    return  res.render("hire",{products:products});
 }
