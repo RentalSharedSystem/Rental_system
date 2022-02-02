@@ -20,3 +20,8 @@ module.exports.hire= async function (req,res) {
     return  res.render("hire",{products:products});
 
 }
+
+module.exports.findByPincode = async function(req,res) {
+  let products= await Product.find({pincode: req.body.pincode});
+    return  res.render("hire",{products:products});
+}
