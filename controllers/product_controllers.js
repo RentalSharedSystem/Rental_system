@@ -1,5 +1,6 @@
 const Product=require('../models/product');
 const User=require('../models/users');
+
 module.exports.rent=(req,res)=>{
    return res.render("rent");
 }

@@ -6,6 +6,7 @@ const session=require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-stratagies');
 const MongoStore = require('connect-mongo');
+
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./assets'));
 app.set("view engine","ejs");
@@ -28,6 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(passport.setAuthenticatedUser);
+
 
 app.use('/',require('./routes/index.js'));
 app.listen(port,function(err){

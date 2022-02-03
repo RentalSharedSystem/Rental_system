@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -26,22 +27,12 @@
         <a class="dropdown" href="/users/logout">SignOut</a>
       </div>
     </div>
-    <div class="main">
-      <!-- <img src="home.jpg" alt=""> -->
-      <div class="home-above">
-        <form class="hire" action="/products/hire" method="post">
-          <input type="text" name="pincode" value="" placeholder="Pincode">
-          <button class="btn btn-lg btn-outline-info" type="submit" name="button">Search</button>
-        </form>
-      </div>
-    </div>
-
   </nav>
 
 
 
     <% products.forEach((item) => { %>
-      <img  src="<%=item.image%>" alt="Card image cap">   
+      <img  src="<%=item.image%>" alt="Card image cap">
         <div class="item">
           <p >Rating: <%=item.rating%></h5>
           <p >Pincode: <%=item.pincode%></h5>
@@ -49,11 +40,14 @@
           <p>Owner:<%=item.owner.name%></p>
           <p>Email:     <%=item.owner.email%></p>
           <p>Contact:   <%=item.owner.phone%></p>
-          <br> 
-          <a class="btn btn btn-outline-info" href="#">Buy Now</a>
+          <br>
+        <a class="btn btn btn-outline-info" href="/order">Buy Now</a>
+
         </div>
     <% }); %>
- 
+
+
+
 </body>
 
 </html>
