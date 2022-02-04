@@ -1,3 +1,5 @@
+const Product=require('../models/product');
+
 const Razorpay = require('razorpay');
 const razorpay = new Razorpay({
   key_id: 'rzp_test_QOtM8eAamDFzZq',
@@ -10,7 +12,7 @@ module.exports.home=function(req,res){
 }
 
 module.exports.order=function(req,res){
-   return res.render("order");
+   return res.render("order",{id:req.params.id});
 }
 
 module.exports.pay =function(req,res) {
@@ -34,7 +36,16 @@ module.exports.pay =function(req,res) {
 module.exports.complete_payment = function(req,res) {
   razorpay.payments.fetch(req.body.razorpay_payment_id).then((doc) => {
     if(doc.status === 'captured') {
-      return res.send("successfull");
+      
+      Product.findByIdAndUpdate(req.params.id,{ $set:{state:"2"}},(err,prdct)=>{
+        if(err)
+        {
+           console.log(err);
+        }
+        else
+        console.log("updated");
+      });
+      return res.render("success");
     } else {
       return res.redirect("/");
     }
