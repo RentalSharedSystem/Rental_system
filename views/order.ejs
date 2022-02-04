@@ -43,6 +43,8 @@
         <button id="rzp-button1" class="btn btn-lg btn-outline-info" style="position: relative; bottom: 200px; left:530px;" name="button">Confirm Payment</button>
         <div style="display: none;">
           <a class="fake" href="/is-order-complete/<%=products._id%>">demo</a>
+          <a class="fake1" href="/order/<%=products.cost%>">demo</a>
+          <a class="fake2" href="<%=products.cost%>">demo</a>
         </div>
       </div>
     </div>
@@ -50,10 +52,14 @@
   </nav>
 
   <script>
-    axios.post('/order').then((info) => {
+    let x=$(".fake1").prop('href');
+    x=x+"00";
+    let x2=$(".fake2").prop('href');
+    x2+="00";
+    axios.post(x).then((info) => {
       var options = {
         "key": "rzp_test_QOtM8eAamDFzZq",
-        "amount": "500000",
+        "amount": x2,
         "currency": "INR",
         "name": "Rental",
         "description": "Test Transaction",

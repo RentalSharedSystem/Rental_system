@@ -4,7 +4,7 @@ console.log("router loaded sucessfully");
 const homeController=require('../controllers/home_controllers');
 router.get('/',homeController.home);
 router.get('/order/:id',homeController.order);
-router.post('/order',homeController.pay);
+router.post('/order/:price',homeController.pay);
 router.post('/is-order-complete/:id',homeController.complete_payment);
 router.use('/users',require('./user.js'));
 router.use('/products',require('./product.js'));

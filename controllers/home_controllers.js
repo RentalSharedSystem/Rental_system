@@ -20,7 +20,7 @@ module.exports.order=async function(req,res){
 module.exports.pay =function(req,res) {
 
   var options = {
-    amount: "500000",
+    amount:req.params.price,
     currency: "INR",
     receipt: "receipt#1",
     notes: {
