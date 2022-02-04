@@ -11,8 +11,10 @@ module.exports.home=function(req,res){
    return res.render("home");
 }
 
-module.exports.order=function(req,res){
-   return res.render("order",{id:req.params.id});
+module.exports.order=async function(req,res){
+   let products=await Product.findById(req.params.id);
+   console.log(products);
+   return res.render("order",{products:products});
 }
 
 module.exports.pay =function(req,res) {
