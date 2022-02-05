@@ -1,4 +1,5 @@
 const Product=require('../models/product');
+const User = require('../models/users');
 
 const Razorpay = require('razorpay');
 const razorpay = new Razorpay({
@@ -11,10 +12,53 @@ module.exports.home=function(req,res){
    return res.render("home");
 }
 
+module.exports.profile= async function(req,res) {
+  return res.render("profile");
+}
+
+module.exports.rent_products= async function(req,res) {
+    let rented_products = await Product.find({owner: req.user._id,state: "1"});
+    return res.render("rent_product",{products:rented_products});
+}
+
+module.exports.purchased_products= async function(req,res) {
+    let rented1_products = await Product.find({owner: req.user._id,state: "2"}).populate('renter');
+    return res.render("purchased_product",{products:rented1_products});
+}
+
+module.exports.hire_products= async function(req,res) {
+    let hired_products = await Product.find({renter: req.user._id,state: "2"}).populate('owner');
+    return res.render("hired_product",{products:hired_products});
+}
+
+module.exports.return_product = async function(req,res) {
+  Product.findByIdAndUpdate(req.params.id,{ $set:{state:"1",renter: null}},(err,prdct)=>{
+    if(err)
+    {
+       console.log(err);
+    }
+    else
+    console.log("updated");
+  });
+  return res.redirect("/profile");
+}
+
+module.exports.edit = function(req,res) {
+  User.findByIdAndUpdate(req.user._id,{ $set:{name:req.body.name,password: req.body.password}},(err,prdct)=>{
+    if(err)
+    {
+       console.log(err);
+    }
+    else
+    console.log("updated");
+  });
+  return res.redirect("/profile");
+}
+
 module.exports.order=async function(req,res){
    let products=await Product.findById(req.params.id);
    console.log(products);
-   return res.render("order",{products:products});
+     return res.render("order",{products:products});
 }
 
 module.exports.pay =function(req,res) {
@@ -38,8 +82,8 @@ module.exports.pay =function(req,res) {
 module.exports.complete_payment = function(req,res) {
   razorpay.payments.fetch(req.body.razorpay_payment_id).then((doc) => {
     if(doc.status === 'captured') {
-      
-      Product.findByIdAndUpdate(req.params.id,{ $set:{state:"2"}},(err,prdct)=>{
+
+      Product.findByIdAndUpdate(req.params.id,{ $set:{state:"2",renter: req.user._id}},(err,prdct)=>{
         if(err)
         {
            console.log(err);

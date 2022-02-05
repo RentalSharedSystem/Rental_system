@@ -5,13 +5,12 @@
   <meta charset="utf-8">
   <title>Project</title>
   <base href="/">
-  <link rel="stylesheet" href="details.css">
+  <link rel="stylesheet" href="hire.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -25,30 +24,35 @@
       <div class="dropdown-content">
         <a class="dropdown" href="/profile">Profile</a>
         <a class="dropdown" href="/users/logout">SignOut</a>
+        <a class="dropdown" href="/">Home</a>
       </div>
     </div>
+    <div class="main">
+      <!-- <img src="home.jpg" alt=""> -->
+      <div class="home-above">
+        <form class="hire" action="/products/hire" method="post">
+          <input type="text" name="pincode" value="" placeholder="Pincode">
+          <button class="btn btn-lg btn-outline-info" type="submit" name="button">Search</button>
+        </form>
+      </div>
+    </div>
+
   </nav>
 
 
-
+  <div class="items">
     <% products.forEach((item) => { %>
-      <img  src="<%=item.image%>" alt="Card image cap">
-        <div class="item">
-          <p >Rating: <%=item.rating%></h5>
-          <p >Pincode: <%=item.pincode%></h5>
-          <p>price per day:- <%=item.cost%></p>
-          <p>Owner:<%=item.owner.name%></p>
-          <p>Email:     <%=item.owner.email%></p>
-          <p>Contact:   <%=item.owner.phone%></p>
-          <br>
-          <% if(locals.user.toString()!=item.owner.toString() && item.state==="1") { %>
-            <a class="btn btn btn-outline-info" href="/order/<%=item._id%>">Buy Now</a>
-          <% } %>
+      <div class="item" style="width: 18rem;">
+        <img class="card-img-top" src="<%=item.image%>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Rating: <%=item.rating%></h5>
+          <h5 class="card-title">Pincode: <%=item.pincode%></h5>
+          <p class="card-text">price per day:- <%=item.cost%></p>
+          <a href="/products/hire/<%=item._id%>" class="btn btn btn-outline-info">See Details..</a>
         </div>
+      </div>
     <% }); %>
-
-
-
+  </div>
 </body>
 
 </html>
