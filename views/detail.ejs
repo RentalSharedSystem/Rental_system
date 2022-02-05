@@ -28,9 +28,8 @@
       </div>
     </div>
   </nav>
-
-
-
+ 
+  
     <% products.forEach((item) => { %>
       <img  src="<%=item.image%>" alt="Card image cap">
         <div class="item">
@@ -40,6 +39,11 @@
           <p>Owner:<%=item.owner.name%></p>
           <p>Email:     <%=item.owner.email%></p>
           <p>Contact:   <%=item.owner.phone%></p>
+          <% if(locals.user.toString()===item.owner.toString() && item.state==="2") { %>
+             <p>Renter:<%=item.renter.name%></p>
+             <p>Renter Email: <%=item.renter.email%></p>
+             <p>Renter Contact:   <%=item.renter.phone%></p>
+          <% } %>
           <br>
           <% if(locals.user.toString()!=item.owner.toString() && item.state==="1") { %>
             <a class="btn btn btn-outline-info" href="/order/<%=item._id%>">Buy Now</a>

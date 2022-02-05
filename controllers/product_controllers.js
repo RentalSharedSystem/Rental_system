@@ -31,6 +31,6 @@ module.exports.findByPincode = async function(req,res) {
 
 module.exports.details = async function(req,res) {
 
-  let products= await Product.find({_id: req.params.id}).populate('owner');
+  let products= await Product.find({_id: req.params.id}).populate('owner').populate('renter');
     return  res.render("detail",{products:products});
 }

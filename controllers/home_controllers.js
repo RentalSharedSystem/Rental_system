@@ -13,7 +13,8 @@ module.exports.home=function(req,res){
 }
 
 module.exports.profile= async function(req,res) {
-  return res.render("profile");
+  let x= await User.findById(req.user._id);
+  return res.render("profile",{user:x});
 }
 
 module.exports.rent_products= async function(req,res) {
