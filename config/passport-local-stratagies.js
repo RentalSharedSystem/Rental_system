@@ -52,7 +52,7 @@ passport.checkAuthentication=function(req,res,next){
     }
     else
     {
-        res.redirect('/users/sign-in');
+           res.redirect('/users/sign-in');
     }
 }
 passport.checkAuthentication1=function(req,res,next){
