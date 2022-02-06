@@ -1,8 +1,9 @@
 const express= require('express');
+const passport=require('passport');
 const router=express.Router();
 console.log("router loaded sucessfully");
 const homeController=require('../controllers/home_controllers');
-router.get('/',homeController.home);
+router.get('/',passport.checkAuthentication,homeController.home);
 router.get('/profile',homeController.profile);
 router.get('/profile/rent',homeController.rent_products);
 router.get('/profile/purchased',homeController.purchased_products);
