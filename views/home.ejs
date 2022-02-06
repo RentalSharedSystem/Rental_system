@@ -32,7 +32,7 @@
     <a class="notauthenticated2 dropdown btn btn-lg btn-dark" href="/users/sign-in">SignIn</a>
     <% } %>
   </nav>
-  
+  <% if (locals.user) { %>
   <div class="main">
     <img src="home.jpg" alt="">
     <div class="home-above">
@@ -43,6 +43,12 @@
       <a class="rent-hire btn btn-lg btn-outline-info" href="/products/hire">Hire</a>
     </div>
   </div>
+  <% } else { %>
+  <div class="main">
+    <img src="home.jpg" alt="">
+  </div>
+  <% } %>
+
 </body>
 
 </html>
