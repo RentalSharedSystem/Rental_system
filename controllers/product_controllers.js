@@ -1,5 +1,25 @@
 const Product=require('../models/product');
 const User=require('../models/users');
+const multer = require('multer');
+const storage = multer.diskStorage({
+  //destination for files
+  destination: function (request, file, callback) {
+    callback(null, './assets/uploads/images');
+  },
+
+  //add back the extension
+  filename: function (request, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  },
+});
+
+//upload parameters for multer
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
 
 module.exports.rent=(req,res)=>{
    return res.render("rent");
@@ -11,7 +31,7 @@ module.exports.add=(req,res)=>{
         state:"1",
         pincode:req.body.pincode,
         rating:req.body.rating,
-        image:req.body.image
+        image:req.file.filename
     });
     console.log("successfully added in the database");
     return res.redirect('/');
