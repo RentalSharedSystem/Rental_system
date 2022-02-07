@@ -1,6 +1,7 @@
 const express= require('express');
 const router=express.Router();
 const multer = require('multer');
+const passport=require('passport');
 console.log("router loaded sucessfully");
 
 const storage = multer.diskStorage({
@@ -24,10 +25,10 @@ const upload = multer({
 });
 
 const productController=require('../controllers/product_controllers');
-router.get('/rent',productController.rent);
-router.get('/hire',productController.hire);
-router.post('/add',upload.single('image'),productController.add);
-router.post('/hire',productController.findByPincode);
-router.get('/hire/:id',productController.details);
+router.get('/rent',passport.checkAuthentication,productController.rent);
+router.get('/hire',passport.checkAuthentication,productController.hire);
+router.post('/add',passport.checkAuthentication,upload.single('image'),productController.add);
+router.post('/hire',passport.checkAuthentication,productController.findByPincode);
+router.get('/hire/:id',passport.checkAuthentication,productController.details);
 
 module.exports=router;
